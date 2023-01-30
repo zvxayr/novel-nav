@@ -1,7 +1,8 @@
-import { ipcRenderer } from 'electron';
+import { invokeIPCChannel } from '../../utils/invokeIPCChannel';
+import { closeWindow, minimizeWindow, toggleMaximizeWindow } from './channels';
 
 export default {
-    minimize: () => ipcRenderer.invoke('window-minimize'),
-    toggleMaximize: () => ipcRenderer.invoke('window-toggle-maximize'),
-    close: () => ipcRenderer.invoke('window-close'),
+    minimize: () => invokeIPCChannel(minimizeWindow),
+    toggleMaximize: () => invokeIPCChannel(toggleMaximizeWindow),
+    close: () => invokeIPCChannel(closeWindow),
 };

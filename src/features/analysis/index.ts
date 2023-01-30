@@ -13,7 +13,7 @@ type SentenceAnalysis = {
 
 const analyze = (text: string) => {
     const paragraphs = text.split(/[\r\n]+/);
-    return paragraphs.map(paragraph => {
+    return paragraphs.map((paragraph) => {
         return nlp(paragraph).compute('syllables').json() as SentenceAnalysis;
     });
 };

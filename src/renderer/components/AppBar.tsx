@@ -1,33 +1,14 @@
-import React, { useEffect, useState } from 'react';
+import React from 'react';
 import styled from 'styled-components';
 
+import { useAppSelector } from '../hooks';
 import { DarkModeToggle } from './DarkMode';
 
-type StateUpdater<S> = React.Dispatch<React.SetStateAction<S>>;
-const attachListeners = (setIsMaximized: StateUpdater<boolean>, setIsFullScreen: StateUpdater<boolean>) => () => {
-    electron.events.listen('maximize', () => {
-        setIsMaximized(true);
-    });
-
-    electron.events.listen('unmaximize', () => {
-        setIsMaximized(false);
-    });
-
-    electron.events.listen('enter-full-screen', () => {
-        setIsFullScreen(true);
-    });
-
-    electron.events.listen('leave-full-screen', () => {
-        setIsFullScreen(false);
-    });
-};
-
 export const AppBar = () => {
-    let [isMaximized, setIsMaximized] = useState(false);
-    let [isFullScreen, setIsFullScreen] = useState(false);
-    useEffect(attachListeners(setIsMaximized, setIsFullScreen), []);
-
+    const isFullScreen = useAppSelector((state) => state.windowState.isFullScreen);
+    const isMaximized = useAppSelector((state) => state.windowState.isMaximized);
     const { minimize, toggleMaximize, close } = electron.controls;
+
     return (
         <MenuBar isHidden={isFullScreen}>
             <Menu>

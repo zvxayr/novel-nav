@@ -39,19 +39,19 @@ const TypescriptFiles = [
         src: './src/main/index.ts',
         target: 'electron-main',
         name: 'main',
-        watch: ['./src/main/**/*.{ts,tsx}', './src/features/**/{listener,index}.{ts,tsx}'],
+        watch: ['./src/main/**/*.{ts,tsx}', './src/**/listener.{ts,tsx}', './src/features/**/index.{ts,tsx}'],
     },
     {
         src: './src/renderer/index.tsx',
         target: 'electron-renderer',
         name: 'renderer',
-        watch: ['./src/renderer/**/*.{ts,tsx}'],
+        watch: ['./src/renderer/**/*.{ts,tsx}', './src/**/*Slice.{ts,tsx}'],
     },
     {
         src: './src/preload/index.ts',
         target: 'electron-preload',
         name: 'preload',
-        watch: ['./src/preload/**/*.{ts,tsx}', './src/features/**/preload.{ts,tsx}'],
+        watch: ['./src/preload/**/*.{ts,tsx}', './src/**/preload.{ts,tsx}', './src/features/**/index.{ts,tsx}'],
     },
 ];
 

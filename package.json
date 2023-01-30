@@ -12,6 +12,7 @@
         "package": "gulp build --silent && npx electron-packager . --overwrite --prune=true --ignore=\"ignore|modules|husky|src|config|lock|gulp\" --out=./dist"
     },
     "devDependencies": {
+        "@kjn/electron-typesafe-ipc": "^2.0.0",
         "@trivago/prettier-plugin-sort-imports": "^4.0.0",
         "@types/gulp": "^4.0.10",
         "@types/react-dom": "^18.0.10",
@@ -30,12 +31,14 @@
         "webpack-stream": "^7.0.0"
     },
     "dependencies": {
+        "@reduxjs/toolkit": "^1.9.2",
         "compromise": "^14.8.1",
         "compromise-speech": "^0.1.0",
         "copy-webpack-plugin": "^11.0.0",
         "crypto": "^1.0.1",
         "react": "^18.2.0",
         "react-dom": "^18.2.0",
+        "react-redux": "^8.0.5",
         "styled-components": "^5.3.6"
     }
 }

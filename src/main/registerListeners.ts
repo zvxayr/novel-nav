@@ -1,13 +1,15 @@
-import { registerAnalysisListeners } from '../features/analysis/listener';
-import { registerDarkModeListeners } from '../features/nativeCapabilities/darkMode/listener';
-import { registerWindowControls } from '../features/nativeCapabilities/windowControls/listener';
-import { registerWindowEvents } from '../features/nativeCapabilities/windowEvents/listener';
+import analysisListeners from '../features/analysis/bridge';
+import { registerWindowEvents } from '../features/events/listener';
+import DarkModeListeners from '../features/nativeCapabilities/darkMode/channels';
+import WindowControlListeners from '../features/nativeCapabilities/windowControls/channels';
+import { registerIPCChannel } from '../features/utils/registerIPCChannel';
 
 export const registerListeners: Listener = (win) => {
-    registerAnalysisListeners(win);
-    registerDarkModeListeners(win);
+    analysisListeners.map(registerIPCChannel);
+    DarkModeListeners.map(registerIPCChannel);
+    WindowControlListeners.map(registerIPCChannel);
+
     registerWindowEvents(win);
-    registerWindowControls(win);
 };
 
 export default registerListeners;

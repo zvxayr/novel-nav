@@ -1,6 +1,7 @@
-import { ipcRenderer } from 'electron';
+import { invokeIPCChannel } from '../../utils/invokeIPCChannel';
+import { isDarkMode, toggleDarkMode } from './channels';
 
 export default {
-    toggle: (): Promise<boolean> => ipcRenderer.invoke('dark-mode:toggle'),
-    value: (): Promise<boolean> => ipcRenderer.invoke('dark-mode:value'),
-} as const;
+    toggle: () => invokeIPCChannel(toggleDarkMode),
+    value: () => invokeIPCChannel(isDarkMode),
+};
