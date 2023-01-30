@@ -11,6 +11,6 @@ module.exports = {
     singleQuote: true,
     jsxSingleQuote: true,
     importOrder: ['^components/(.*)$', '^[./]'],
-    importOrderSeparation: true,
+    importOrderSeparation: false,
     importOrderSortSpecifiers: true,
 };

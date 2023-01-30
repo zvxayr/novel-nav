@@ -1,7 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import styled from 'styled-components';
-
-import { DarkModeToggle } from './DarkModeToggle';
+import { DarkModeToggle } from './DarkMode';
 
 type StateUpdater<S> = React.Dispatch<React.SetStateAction<S>>;
 const attachListeners = (setIsMaximized: StateUpdater<boolean>, setIsFullScreen: StateUpdater<boolean>) => () => {

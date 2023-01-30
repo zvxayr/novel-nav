@@ -1,5 +1,4 @@
 import { contextBridge } from 'electron';
-
 import analysis from '../features/analysis/preload';
 import darkMode from '../features/nativeCapabilities/darkMode/preload';
 import controls from '../features/nativeCapabilities/windowControls/preload';
