@@ -1,4 +1,5 @@
 import React from 'react';
+
 import { AppBar } from './components/AppBar';
 import { MainArea } from './components/MainArea';
 import { StatusBar } from './components/StatusBar';
